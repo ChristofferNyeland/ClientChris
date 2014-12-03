@@ -9,6 +9,7 @@ public class Main {
 		try {
 			LogicGUI lGUI = new LogicGUI();
 			lGUI.startApp();
+			System.out.println("TEST");
 
 		} catch (Exception e) {
 			e.printStackTrace();

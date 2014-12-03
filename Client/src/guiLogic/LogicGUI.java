@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-
 import connection.ServerHandler;
 import gui.AggregateGUI;
 import gui.EventGUI;
@@ -17,9 +16,10 @@ public class LogicGUI {
 	private AggregateGUI AG;
 	private EventGUI EG;
 	ServerHandler SH = new ServerHandler();
-	private String checkUsername;
-	private String checkUserID;
-	private String checkAdmin;
+	private String overallUserID;
+	private String overallUserName;
+	private String overallAdminCheck;
+	
 
 	public LogicGUI() throws SQLException {
 		AG = new AggregateGUI();
@@ -56,6 +56,96 @@ public class LogicGUI {
 			
 		}
 		
+	}
+	
+	private class calendarDetails implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			AG.show(AggregateGUI.calendarDetails);
+		}
+	}
+	
+	private class eventDetails implements ActionListener {
+		public void actionPerformed(ActionEvent e){
+			AG.show(AggregateGUI.eventGUI);
+		}
+	}
+	private void setWeekView()
+	{
+		String[][] weekDate = SH.getEventsFromUSerWeek(overallUserName);
+		int arrayCounter = weekDate[0].length;
+		int arrayChecker = 0;
+		int arrayCheckerPlus = 0;
+		for (int reset = 1; reset < 99; reset++) {
+			System.out.println("Vi er inde i for-loop " + reset + ". gang");
+			// Sets every field in a Jtable equals nothing
+			AG.getMM().getWeekTable().setValueAt(null, reset, 0);
+			AG.getMM().getWeekTable().setValueAt(null, reset, 1);
+			AG.getMM().getWeekTable().setValueAt(null, reset, 2);
+			AG.getMM().getWeekTable().setValueAt(null, reset, 3);
+			AG.getMM().getWeekTable().setValueAt(null, reset, 4);
+		}
+
+		System.out.println(weekDate[arrayCheckerPlus][17]);
+		while (arrayChecker < arrayCounter) {
+			try
+			{
+				if(!weekDate[0][arrayChecker].isEmpty())
+				{
+				System.out.println("Vi er inde i while-loop " + arrayChecker+ ". gang");
+				AG.getMM().getWeekTable().setValueAt(weekDate[0][arrayChecker], arrayCheckerPlus, 0);
+				AG.getMM().getWeekTable().setValueAt(weekDate[1][arrayChecker], arrayCheckerPlus, 1);
+				AG.getMM().getWeekTable().setValueAt(weekDate[2][arrayChecker], arrayCheckerPlus, 2);
+				AG.getMM().getWeekTable().setValueAt(weekDate[3][arrayChecker], arrayCheckerPlus, 3);
+				AG.getMM().getWeekTable().setValueAt(weekDate[4][arrayChecker], arrayCheckerPlus, 4);
+				arrayChecker++;
+				arrayCheckerPlus++;
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Well... We Try again");
+				arrayChecker++;
+			}
+		}
+	}
+	private void setDayView()
+	{
+		String[][] dayDate = SH.getEventsFromUSerDay(overallUserName);
+		int arrayCounter = dayDate[0].length;
+		int arrayChecker = 0;
+		int arrayCheckerPlus = 0;
+		for (int reset = 1; reset < 99; reset++) {
+			System.out.println("Vi er inde i for-loop " + reset + ". gang");
+			// Sets every field in a Jtable equals nothing
+			AG.getMM().getDayTable().setValueAt(null, reset, 0);
+			AG.getMM().getDayTable().setValueAt(null, reset, 1);
+			AG.getMM().getDayTable().setValueAt(null, reset, 2);
+			AG.getMM().getDayTable().setValueAt(null, reset, 3);
+			AG.getMM().getDayTable().setValueAt(null, reset, 4);
+		}
+
+		System.out.println(dayDate[arrayCheckerPlus][17]);
+		while (arrayChecker < arrayCounter) {
+			try
+			{
+				if(!dayDate[0][arrayChecker].isEmpty())
+				{
+				System.out.println("Vi er inde i while-loop " + arrayChecker+ ". gang");
+				AG.getMM().getDayTable().setValueAt(dayDate[0][arrayChecker], arrayCheckerPlus, 0);
+				AG.getMM().getDayTable().setValueAt(dayDate[1][arrayChecker], arrayCheckerPlus, 1);
+				AG.getMM().getDayTable().setValueAt(dayDate[2][arrayChecker], arrayCheckerPlus, 2);
+				AG.getMM().getDayTable().setValueAt(dayDate[3][arrayChecker], arrayCheckerPlus, 3);
+				AG.getMM().getDayTable().setValueAt(dayDate[4][arrayChecker], arrayCheckerPlus, 4);
+				arrayChecker++;
+				arrayCheckerPlus++;
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println("Well... We Try again");
+				arrayChecker++;
+			}
+		}
 	}
 	
 	private class btnToMainMenu implements ActionListener {
