@@ -22,10 +22,10 @@ public class LoginGUI extends JPanel {
 	private JLabel lblEmail = new JLabel("Email");
 	private JLabel lblPassword = new JLabel("Password");
 	private JTextField emailTextField = new JTextField();
-	private JTextField passwordTextField = new JTextField();
 	private JLabel lblLogin;
 	private JButton btnLogin = new JButton("Login");
 	private JButton btnLogOut = new JButton ("LogOut");
+	private JPasswordField passwordField;
 	
 	public LoginGUI() {
 		setLayout(null);
@@ -41,14 +41,9 @@ public class LoginGUI extends JPanel {
 		add(lblPassword);
 		
 		emailTextField = new JTextField();
-		emailTextField.setBounds(551, 265, 263, 40);
+		emailTextField.setBounds(553, 265, 263, 45);
 		add(emailTextField);
 		emailTextField.setColumns(10);
-		
-		passwordTextField = new JTextField();
-		passwordTextField.setBounds(551, 364, 263, 40);
-		add(passwordTextField);
-		passwordTextField.setColumns(10);
 		
 		lblLogin = new JLabel("Login");
 		lblLogin.setFont(new Font("Arial", Font.BOLD, 34));
@@ -59,6 +54,10 @@ public class LoginGUI extends JPanel {
 		
 		btnLogin.setBounds(582, 628, 202, 62);
 		add(btnLogin);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(553, 364, 263, 45);
+		add(passwordField);
 		JLabel lblBackground = new JLabel("Background");
 		lblBackground.setBounds(0, 0, 1376, 768);
 		lblBackground.setIcon(new ImageIcon(LoginGUI.class.getResource("/img/MetalBackground.jpg")));
@@ -73,8 +72,8 @@ public class LoginGUI extends JPanel {
 		return emailTextField;
 	}
 
-	public JTextField getPasswordTextField() {
-		return passwordTextField;
+	public JTextField getPasswordField() {
+		return passwordField;
 	}
 
 	public JButton getBtnLogin() {
@@ -86,5 +85,4 @@ public class LoginGUI extends JPanel {
 	public void addActionListenerWelcomeScreen(ActionListener l){
 		btnLogin.addActionListener(l);
 	}
-	
 	}

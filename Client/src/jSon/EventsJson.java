@@ -3,7 +3,7 @@ package jSon;
 public class EventsJson implements java.io.Serializable{
 
 	private  final long serialVersionUID = 2L;
-	private String overallID = "getEvents";
+	private String overallID = "createEvent";
 	private String eventid ;
 	private String cbsEventId = "Custom";
 	private String type;

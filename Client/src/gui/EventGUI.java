@@ -232,6 +232,14 @@ public class EventGUI extends JPanel{
 		txtChooseLocation.setBounds(560, 222, 266, 28);
 		add(txtChooseLocation);
 		txtChooseLocation.setColumns(10);
+		
+		JLabel lblBackground = new JLabel("Background");
+		lblBackground.setBounds(0, 0, 1376, 768);
+		lblBackground.setIcon(new ImageIcon(LoginGUI.class.getResource("/img/MetalBackground.jpg")));
+		lblBackground.setBackground(new Color(245, 245, 245));
+		lblBackground.setForeground(new Color(245, 255, 250));
+		lblBackground.setOpaque(true);
+		add(lblBackground);
 	}
 	public JButton getBtnClearFields() {
 		return btnClearFields;

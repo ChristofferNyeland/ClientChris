@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import gui.NoteView;
+
+
 
 public class AggregateGUI extends JFrame{
 	
@@ -13,6 +16,11 @@ public class AggregateGUI extends JFrame{
 	public static final String mainMenu = "MainMenu";
 	public static final String quoteAndWeather = "QuoteAndWeather";
 	public static final String eventGUI = "EventGUI";
+	public static final String dayView = "DayView";
+	public static final String weekView = "WeekView";
+	public static final String calendarView = "CalendarView";
+	public static final String eventView = "EventView";
+	public static final String noteView = "NoteView";
 	
 	
 	private static JPanel contentPane;
@@ -20,8 +28,9 @@ public class AggregateGUI extends JFrame{
 	
 	private LoginGUI LI;
 	private MainMenu MM;
-	private QuoteAndWeather QAW;
 	private EventGUI EG;
+	private CalendarView CV;
+	private NoteView NV;
 	
 	public AggregateGUI() throws SQLException{
 		
@@ -42,11 +51,19 @@ public class AggregateGUI extends JFrame{
 		MM = new MainMenu();
 		contentPane.add(MM, mainMenu);
 		
-		QAW = new QuoteAndWeather();
-		contentPane.add(QAW, quoteAndWeather);
 		
 		EG = new EventGUI();
 		contentPane.add(EG, eventGUI);
+	
+		
+		CV = new CalendarView();
+		contentPane.add(CV, calendarView);
+		
+		NV = new NoteView();
+		contentPane.add(NV, noteView);
+		
+		
+		
 		
 	}
 
@@ -57,14 +74,19 @@ public class AggregateGUI extends JFrame{
 	public MainMenu getMM() {
 		return MM;
 	}
-	public QuoteAndWeather getQAW(){
-		return QAW;
-	}
+	
 	
 	public EventGUI getEG(){
 		return EG;
 	}
+	public NoteView getNV() {
+		return NV;
+	}
 	
+	
+	public CalendarView getCV() {
+		return CV;
+	}
 	public void show(String card){
 		c.show(getContentPane(), card);
 	}

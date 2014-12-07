@@ -8,7 +8,7 @@ public class AuthUserJson implements java.io.Serializable
 	private String password;
 	private String isActive;
 	
-	//Getters and setters for everything, bitch
+	//Getters and setters for everything
 	public String getOverallID() {
 		return overallID;
 	}
