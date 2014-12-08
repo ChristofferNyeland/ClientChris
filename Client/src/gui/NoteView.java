@@ -32,7 +32,7 @@ public class NoteView extends JPanel {
 		add(mainMenuBtn);
 		
 		JLabel lblBackground = new JLabel("");
-		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Img/BlueBG.jpg")));
+		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/img/MetalBackground.jpg")));
 		lblBackground.setBounds(0, 0, 1366, 768);
 		lblBackground.isForegroundSet();
 		

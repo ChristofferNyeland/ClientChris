@@ -31,6 +31,8 @@ public class MainMenu extends JPanel {
 	private JLabel weatherLabel = new JLabel("");
 	private JLabel quoteText1 = new JLabel("");
 	private JLabel quoteText2 = new JLabel("");
+	private JButton btnViewNote = new JButton("View Notes");
+	private JButton btnNotes;
 
 	public MainMenu() {
 		setLayout(null);
@@ -65,11 +67,15 @@ public class MainMenu extends JPanel {
 		add(btnEvents);
 
 		btnViewNotes = new JButton("View Notes");
-		btnViewNotes.setBounds(582, 146, 202, 62);
+		btnViewNotes.setBounds(582, 297, 202, 62);
 		add(btnViewNotes);
+		
+		btnNotes = new JButton("Notes");
+		btnNotes.setBounds(582, 220, 202, 62);
+		add(btnNotes);
 
 		btnCalendar = new JButton("View Full Calendar");
-		btnCalendar.setBounds(582, 220, 202, 62);
+		btnCalendar.setBounds(582, 146, 202, 62);
 		add(btnCalendar);
 		scrollPane.setLocation(836, 112);
 		scrollPane.setSize(507, 620);
@@ -203,6 +209,8 @@ public class MainMenu extends JPanel {
 		lblBackground.setForeground(new Color(245, 255, 250));
 		lblBackground.setOpaque(true);
 		add(lblBackground);
+		
+	
 
 	}
 
@@ -253,6 +261,16 @@ public class MainMenu extends JPanel {
 
 	public void addActionListenerLogOut(ActionListener l) {
 		btnLogout.addActionListener(l);
+	}
+	
+	public void viewNoteListener (ActionListener l)
+	{
+		btnViewNotes.addActionListener(l);
+	}
+	
+	public void noteViewListener (ActionListener l)
+	{
+		btnNotes.addActionListener(l);
 	}
 
 	public JScrollPane getScrollPane() {

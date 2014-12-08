@@ -10,9 +10,9 @@ import jSon.WeatherJson;
 import jSon.DeleteCalendarJson;
 import jSon.EventsWeekJson;
 import jSon.userToCalendar;
-import JsonClasses.AddNoteJson;
-import JsonClasses.NoteJson;
-import JsonClasses.subscribeUserJson;
+import jSon.AddNoteJson;
+import jSon.NoteJson;
+import jSon.subscribeUserJson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -113,7 +113,7 @@ public class ServerHandler {
 		try {
 			stringArrayToBeReturned = gson.fromJson(
 					CL.sentToServer(gsonString), String[][].class);
-			System.out.println(stringArrayToBeReturned[2][4]);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -228,7 +228,7 @@ public class ServerHandler {
 		NJ.setEventID(eventID);
 		String gsonString = gson.toJson(NJ);
 		try {
-			stringFromServer = TC.sendMessage(gsonString);
+			stringFromServer = CL.sentToServer(gsonString);
 			try {
 				NoteJson NJR = gson.fromJson(stringFromServer, NoteJson.class);
 				stringToBeReturned = NJR.getNote();

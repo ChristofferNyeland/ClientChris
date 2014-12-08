@@ -112,6 +112,14 @@ public class LogicGUI { // the class that contains all gui logic in order to fol
 			}
 		}
 	}
+	
+	private class toNoteView implements ActionListener{
+		public void actionPerformed(ActionEvent e)
+		{
+			AG.show(AggregateGUI.noteView);
+			
+		}
+	}
 
 	private void getCalendars() {
 		String[][] calendarData = SH.getCalendarsFromAll();
@@ -165,50 +173,7 @@ public class LogicGUI { // the class that contains all gui logic in order to fol
 
 	}
 
-	// private void setDayView()
-	// {
-	// String[][] dayDate = SH.getEventsFromUSerDay(overallUserName);
-	// int arrayCounter = dayDate[0].length;
-	// int arrayChecker = 0;
-	// int arrayCheckerPlus = 0;
-	// for (int reset = 1; reset < 99; reset++) {
-	// System.out.println("Vi er inde i for-loop " + reset + ". gang");
-	// // Sets every field in a Jtable equals nothing
-	// AG.getMM().getDayTable().setValueAt(null, reset, 0);
-	// AG.getMM().getDayTable().setValueAt(null, reset, 1);
-	// AG.getMM().getDayTable().setValueAt(null, reset, 2);
-	// AG.getMM().getDayTable().setValueAt(null, reset, 3);
-	// AG.getMM().getDayTable().setValueAt(null, reset, 4);
-	// }
-	//
-	//
-	// while (arrayChecker < arrayCounter) {
-	// try
-	// {
-	// if(!dayDate[0][arrayChecker].isEmpty())
-	// {
-	// System.out.println("Vi er inde i while-loop " + arrayChecker+ ". gang");
-	// AG.getMM().getDayTable().setValueAt(dayDate[0][arrayChecker],
-	// arrayCheckerPlus, 0);
-	// AG.getMM().getDayTable().setValueAt(dayDate[1][arrayChecker],
-	// arrayCheckerPlus, 1);
-	// AG.getMM().getDayTable().setValueAt(dayDate[2][arrayChecker],
-	// arrayCheckerPlus, 2);
-	// AG.getMM().getDayTable().setValueAt(dayDate[3][arrayChecker],
-	// arrayCheckerPlus, 3);
-	// AG.getMM().getDayTable().setValueAt(dayDate[4][arrayChecker],
-	// arrayCheckerPlus, 4);
-	// arrayChecker++;
-	// arrayCheckerPlus++;
-	// }
-	// }
-	// catch(Exception e)
-	// {
-	// System.out.println("Well... We Try again");
-	// arrayChecker++;
-	// }
-	// }
-	// }
+	
 	private void setQuote() { // method to display the quote in the main menu
 		String quoteText = SH.quoteCheck();
 		int quoteLength = quoteText.length();
@@ -235,6 +200,7 @@ public class LogicGUI { // the class that contains all gui logic in order to fol
 		public void actionPerformed(ActionEvent e) {
 			String calendarName = AG.getCV().getSubscribeField().getText();
 			SH.useToCalendar(overallUserName, calendarName);
+			setWeekView();
 		}
 	}
 
@@ -464,6 +430,11 @@ public class LogicGUI { // the class that contains all gui logic in order to fol
 		AG.getCV().goToMainMenu(new btnToMainMenu());
 		AG.getMM().eventListener(new toEventView());
 		AG.getCV().otherUserSubscribe(new subscribeOtherUser());
+		AG.getMM().noteViewListener(new toNoteView());
+		AG.getCV().otherUserSubscribe(new subscribeOtherUser());
+		AG.getMM().viewNoteListener(new viewNote());
+		AG.getNV().getNoteListener(new getNoteText());
+		AG.getNV().addNoteListener(new updateNotes());
 
 	}
 }
