@@ -13,6 +13,7 @@ import jSon.userToCalendar;
 import jSon.AddNoteJson;
 import jSon.NoteJson;
 import jSon.subscribeUserJson;
+import jSon.EventsDayJson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,6 +72,22 @@ public class ServerHandler {
 			e.printStackTrace();
 		}
 
+		return stringArrayToBeReturned;
+	}
+	
+	public String[][] getEventsFromUSerDay(String allKnowingUsername) {
+		String[][] stringArrayToBeReturned = null;
+		EventsDayJson EDJ = new EventsDayJson();
+		EDJ.setCreatedby(allKnowingUsername);
+		String gsonString = gson.toJson(EDJ);
+		try
+		{ 
+			stringArrayToBeReturned = gson.fromJson(CL.sentToServer(gsonString), String[][].class);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		return stringArrayToBeReturned;
 	}
 

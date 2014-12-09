@@ -25,57 +25,59 @@ public class MainMenu extends JPanel {
 	private JLabel lblTodaysWeather;
 	private JLabel lblTodaysQuote;
 	private JLabel lblYourCalendar;
+	private final JTable dayTable = new JTable();
+	private final JScrollPane scrollPane_1 = new JScrollPane();
 	private JButton btnEvents;
 	private JButton btnViewNotes;
 	private JButton btnCalendar;
 	private JLabel weatherLabel = new JLabel("");
 	private JLabel quoteText1 = new JLabel("");
 	private JLabel quoteText2 = new JLabel("");
-	private JButton btnViewNote = new JButton("View Notes");
 	private JButton btnNotes;
+	private JLabel lblDailyCalendar;
 
 	public MainMenu() {
 		setLayout(null);
 		setPreferredSize(new Dimension(1366, 768));
 
 		btnLogout = new JButton("Logout");
-		btnLogout.setBounds(582, 670, 202, 62);
+		btnLogout.setBounds(622, 667, 202, 62);
 		add(btnLogout);
 
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setFont(new Font("Arial", Font.BOLD, 34));
-		lblMainMenu.setBounds(595, 17, 175, 40);
+		lblMainMenu.setBounds(632, 20, 175, 40);
 		add(lblMainMenu);
 
 		lblTodaysWeather = new JLabel("Today's Weather:");
 		lblTodaysWeather.setFont(new Font("Arial", Font.BOLD, 16));
-		lblTodaysWeather.setBounds(273, 285, 133, 19);
+		lblTodaysWeather.setBounds(21, 72, 133, 19);
 		add(lblTodaysWeather);
 
 		lblTodaysQuote = new JLabel("Today's Quote:");
 		lblTodaysQuote.setFont(new Font("Arial", Font.BOLD, 16));
-		lblTodaysQuote.setBounds(273, 482, 133, 19);
+		lblTodaysQuote.setBounds(21, 182, 133, 19);
 		add(lblTodaysQuote);
 
-		lblYourCalendar = new JLabel("Your Calendar:");
+		lblYourCalendar = new JLabel("Weekly Calendar:");
 		lblYourCalendar.setFont(new Font("Arial", Font.BOLD, 16));
 		lblYourCalendar.setBounds(1053, 72, 133, 19);
 		add(lblYourCalendar);
 
 		btnEvents = new JButton("View Events");
-		btnEvents.setBounds(582, 72, 202, 62);
+		btnEvents.setBounds(622, 72, 202, 62);
 		add(btnEvents);
 
 		btnViewNotes = new JButton("View Notes");
-		btnViewNotes.setBounds(582, 297, 202, 62);
+		btnViewNotes.setBounds(622, 301, 202, 62);
 		add(btnViewNotes);
 		
 		btnNotes = new JButton("Notes");
-		btnNotes.setBounds(582, 220, 202, 62);
+		btnNotes.setBounds(622, 220, 202, 62);
 		add(btnNotes);
 
 		btnCalendar = new JButton("View Full Calendar");
-		btnCalendar.setBounds(582, 146, 202, 62);
+		btnCalendar.setBounds(622, 146, 202, 62);
 		add(btnCalendar);
 		scrollPane.setLocation(836, 112);
 		scrollPane.setSize(507, 620);
@@ -189,18 +191,135 @@ public class MainMenu extends JPanel {
 		scrollPane.setViewportView(weekTable);
 
 		add(scrollPane);
+		
+		scrollPane.setViewportView(dayTable);
+		scrollPane_1.setBounds(21, 341, 549, 389);
+		
+		add(scrollPane_1);
+		weekTable.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
 
-		weatherLabel.setBounds(6, 316, 778, 22);
+		weatherLabel.setBounds(21, 97, 589, 22);
 		add(weatherLabel);
 
 		quoteText1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
-		quoteText1.setBounds(6, 512, 778, 23);
+		quoteText1.setBounds(21, 221, 589, 23);
 		add(quoteText1);
 		quoteText2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		quoteText2.setBounds(6, 557, 730, 23);
+		quoteText2.setBounds(21, 273, 589, 23);
 
 		add(quoteText2);
+		
+		lblDailyCalendar = new JLabel("Daily Calendar:");
+		lblDailyCalendar.setFont(new Font("Arial", Font.BOLD, 16));
+		lblDailyCalendar.setBounds(231, 310, 133, 19);
+		add(lblDailyCalendar);
 		
 		JLabel lblBackground = new JLabel("Background");
 		lblBackground.setBounds(0, 0, 1376, 768);
@@ -210,6 +329,7 @@ public class MainMenu extends JPanel {
 		lblBackground.setOpaque(true);
 		add(lblBackground);
 		
+	
 	
 
 	}
@@ -291,5 +411,8 @@ public class MainMenu extends JPanel {
 
 	public JScrollPane getScrollPaneDay() {
 		return scrollPaneDay;
+	}
+	public JTable getDayTable() {
+		return dayTable;
 	}
 }
